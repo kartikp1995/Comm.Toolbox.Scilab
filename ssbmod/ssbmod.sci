@@ -4,25 +4,22 @@
 //License   : Creative Commons Attribution-ShareAlike 4.0 International License
 
 function[y]=ssbmod(x, Fc, Fs, varargin)
-// y = ssbmod(x, Fc, Fs, init_phase, 'upper')
-//  This function will generate the single sideband modulated signal with modulating 
-//  singal x and carrier frequency Fc.
-//
-//  Input Arguments:
-//      x           :   Modulating signal
-//      Fc          :   Carrier Frequency of Modulated signal
-//      Fs          :   Sampling Frequency of Input signal
-//      init_phase  :   Initial Phase of Modulated signal (default = 0, optional)
-//      'upper'     :   Upper SideBand modulated signal   (default='lower', optional)
-//                      For lower sideband, this argument can be blank.
-//  Conditions:
-//      Fs > 2*(Fc+BW), where BW is bandwidth of Modulating Signal
-//
-//  Output:
-//      y           :   Single Sideband Modulated signal
-
-
-
+//  y = ssbmod(x, Fc, Fs, init_phase, 'upper')
+    //  This function will generate the single sideband modulated signal with modulating 
+    //  singal x and carrier frequency Fc.
+    //
+    //  Input Arguments:
+    //      x           :   Modulating signal
+    //      Fc          :   Carrier Frequency of Modulated signal
+    //      Fs          :   Sampling Frequency of Input signal
+    //      init_phase  :   Initial Phase of Modulated signal (default = 0, optional)
+    //      'upper'     :   Upper SideBand modulated signal   (default='lower', optional)
+    //                      For lower sideband, this argument can be blank.
+    //  Conditions:
+    //      Fs > 2*(Fc+BW), where BW is bandwidth of Modulating Signal
+    //
+    //  Output:
+    //      y           :   Single Sideband Modulated signal
     if imag(x)~=0 then
         //Check for real input signal
         disp('Input vector must be real.')
