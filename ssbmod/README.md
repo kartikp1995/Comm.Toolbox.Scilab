@@ -50,4 +50,4 @@ title('Single Sideband Modulation results');
 ```
 
 Output:
-![Example Result](https://github.com/kartikp1995/Comm.Toolbox.Scilab/ssbmod/example.jpg)
+![Example Result](https://raw.githubusercontent.com/kartikp1995/Comm.Toolbox.Scilab/master/ssbmod/example.jpg)
