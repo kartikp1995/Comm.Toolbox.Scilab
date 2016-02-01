@@ -5,7 +5,7 @@
 
 function[y]=matintrlv(x, Nrows, Ncols)
     //  y = matintrlv(x, Nrows, Ncols)
-    //  This function will permute the data by filling a matrix of size Nrows*Ncols row wise and
+    //  This function rearranges the data by filling a matrix of size Nrows*Ncols row wise and
     //  emptying it column wise. i.e. Symbols of X are filled in temporary matrix rowwise. The same
     //  temporary matrix will be emptied columnwise. Resulting permutation is stored in Y.
     //
