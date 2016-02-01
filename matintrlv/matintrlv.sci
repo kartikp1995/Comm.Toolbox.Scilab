@@ -56,16 +56,16 @@ function[y]=matintrlv(x, Nrows, Ncols)
     
     //Core function
     for m=1:length(x(1,:))  //Traverse each column
-        temp_mat = zeros(rows, cols);   //Temporary matrix of size Nrows*Ncols
-        for i=1:rows
-            for j=1:cols
-                temp_mat(i,j) = x(cols*(i-1)+j, m); //Row wise assignment of elements of X to temporary matrix
+        temp_mat = zeros(Nrows, Ncols);   //Temporary matrix of size Nrows*Ncols
+        for i=1:Nrows
+            for j=1:Ncols
+                temp_mat(i,j) = x(Ncols*(i-1)+j, m); //Row wise assignment of elements of X to temporary matrix
             end
         end
         
         k = 1;
-        for j=1:cols
-            for i=1:rows
+        for j=1:Ncols
+            for i=1:Nrows
                 y(k,m)=temp_mat(i,j);   //Column wise assignment of elements of temporary matrix to output Y
                 k = k + 1;
             end
