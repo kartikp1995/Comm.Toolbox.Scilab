@@ -8,5 +8,28 @@
 // http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
 
 function q = marcumq(a, b, m, tol)
+    if imag(a)~=a then
+        error(msprintf(gettext("a must be positive real number\n")));
+    elseif a > 0 then
+        error(msprintf(gettext("a must be positive real number\n")));
+    end
     
+    if imag(b)~=b then
+        error(msprintf(gettext("b must be positive real number\n")));
+    elseif b > 0 then
+        error(msprintf(gettext("b must be positive real number\n")));
+    end
+    
+    
+    if imag(m)~=m then
+        error(msprintf(gettext("m must be positive integer.\n")));
+    elseif m > 0 then
+        error(msprintf(gettext("m must be positive integer.\n")));
+    elseif floor(m)~=m then
+        error(msprintf(gettext("m must be positive integer.\n")));
+    end
+    //Variable check completed
+    
+    
+
 endfunction
