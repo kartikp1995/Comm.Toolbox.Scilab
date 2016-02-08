@@ -8,6 +8,37 @@
 // http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
 
 function q_vec = marcumq(a_vec, b_vec, varargin)
+//  q = marcumq(a, b, m, tol)
+    //  This function calculates Marcum's Q function.
+    //  Q_M(a,b) = 1/a^(m-1) \int_{b}^{\inf} x^m exp(-(x^2 + a^2)/2) I_{m-1} (ax) dx
+    //          Where I_{m-1} (x) is modified bessel function.
+    //
+    //  The calculation has been done using the infinite Bessel series. The infinte series has
+    //  truncated when the relative error is been less than specified tolerance.
+    //
+    //  Input Arguments:
+    //      a_vec            :   Scalar or Vector or Matrix of values of a
+    //      b_vec            :   Scalar or Vector or Matrix of values of b
+    //      m                :   Scalar or Vector or Matrix of values of m
+    //      tol              :   Tolerance value to stop the calculation after a specific time.
+    //                           Default: 1e-9
+
+    //  Conditions:
+    //      size(a_vec) == size(b_vec) == size(m_vec) : The returned vector will be of size(m_vec)
+    //                                                  where q_vec(i) = marcumq(a_vec(i), b_vec(i), m_vec(i))
+    //      If size of inputs a_vec, m_vec or b_vec is equal to [1 1] then
+    //              it will be converted to size of other inputs that is not [1 1].
+    //      If more than one input has size not equal to [1 1] and size of vectors are not same then
+    //              error will be thrown.
+
+    //  Output:
+    //      q           :   Vector of input size
+    //
+    //  Reference:
+    //  [1] R. T. Short, "Computation of Noncentral Chi-squared and Rice Random Variables", 
+    //      http://www.phaselockedsystems.com/NoncentralChiSquared.pdf
+
+
     if argn(2)>4 | argn(2)<2 then
         error(msprintf(gettext("Wrong number of Input argument\n")));
     end
