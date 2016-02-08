@@ -7,34 +7,52 @@
 // are also available at    
 // http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
 
-function q = marcumq(a, b, varargin)
+function q_vec = marcumq(a_vec, b_vec, varargin)
     if argn(2)>4 | argn(2)<2 then
         error(msprintf(gettext("Wrong number of Input argument\n")));
     end
 
-    if imag(a)~=0 then
+    if or(imag(a_vec)~=0) then
         error(msprintf(gettext("a must be non-negative real number\n")));
-    elseif a < 0 then
+    elseif or(a_vec < 0) then
         error(msprintf(gettext("a must be non-negative real number\n")));
     end
 
-    if imag(b)~=0 then
+    if or(imag(b_vec)~=0) then
         error(msprintf(gettext("b must be non-negative real number\n")));
-    elseif b < 0 then
+    elseif or(b_vec < 0) then
         error(msprintf(gettext("b must be non-negative real number\n")));
     end
     
+    if size(a_vec) == [1 1] then
+        a_vec = repmat(a_vec, size(b_vec));
+    elseif size(b_vec) == [1 1] then
+        b_vec = repmat(b_vec, size(a_vec));
+    elseif ~isequal(size(a_vec), size(b_vec)) then
+        error(msprintf(gettext("Dimensions of input vectors must be same\n")));
+    end
+
     if argn(2) >= 3 then
-        m = varargin(1);
-        if imag(m)~=0 then
-            error(msprintf(gettext("m must be positive integer.\n")));
-        elseif m <= 0 then
-            error(msprintf(gettext("m must be positive integer.\n")));
-        elseif floor(m)~=m then
-            error(msprintf(gettext("m must be positive integer.\n")));
+        m_vec = varargin(1);
+        if or(imag(m_vec)~=0) then
+            error(msprintf(gettext("m_vec must be positive integer.\n")));
+        elseif or(m_vec <= 0) then
+            error(msprintf(gettext("m_vec must be positive integer.\n")));
+        elseif or(floor(m_vec)~=m_vec) then
+            error(msprintf(gettext("m_vec must be positive integer.\n")));
+        end
+        if size(m_vec) == [1 1] then
+            m_vec = repmat(m_vec, size(a_vec));
+        else
+            if size(a_vec) == [1 1] then
+                a_vec = repmat(a_vec, size(m_vec));
+                b_vec = repmat(b_vec ,size(m_vec));
+            else
+                error(msprintf(gettext("Dimensions of input vectors must be same\n")));
+            end
         end
     else
-        m = 1;
+        m_vec = ones(size(a_vec));
     end
     
     if argn(2) == 4 then
@@ -49,52 +67,59 @@ function q = marcumq(a, b, varargin)
     end
     //Variable check completed
     
-    if  b==0 then
-        q = 1;
-        return;
-    end
-    if a==0 then
-        k = 0:m-1;
-        q = sum((b^(2.*k)./(2^(k).*factorial(k))))
-        q = exp(-(b^2)/2)*q;
-        return;
-    end
-    
-    z = a * b;
-    if a < b then
-        x = a/b;
-        d = x;
-        S = besseli(0, z, 1)
-        for k=1:m-1
-            t = (d+1/d)*besseli(k,z,1);
-            S = S + t;
-            d = d * x;
+    q_vec = zeros(size(a_vec));
+    for i = 1:prod(size(a))
+        b = b_vec(i);
+        a = a_vec(i);
+        m = m_vec(i);
+        if  b==0 then
+            q = 1;
+            return;
         end
-        k = 1;
-        while(1==1)
-            t = d*besseli(k,z,1);
-            S = S + t;
-            d = d*x;
-            k = k + 1;
-            if (abs(t/S) < tol) then
-                break;
+        if a==0 then
+            k = 0:m-1;
+            q = sum((b^(2.*k)./(2^(k).*factorial(k))))
+            q = exp(-(b^2)/2)*q;
+            return;
+        end
+
+        z = a * b;
+        if a < b then
+            x = a/b;
+            d = x;
+            S = besseli(0, z, 1)
+            for k=1:m-1
+                t = (d+1/d)*besseli(k,z,1);
+                S = S + t;
+                d = d * x;
             end
-        end
-        q = S*exp(-((a-b)^2)/2);
-    else
-        x = b/a;
-        k = m;
-        d = x^m;
-        S = 0;
-        while(1==1)
-            t = d*besseli(k,z,1);
-            S = S + t;
-            d = d*x;
-            k = k + 1;
-            if (abs(t/S) < tol) then
-                break;
+            k = 1;
+            while(1==1)
+                t = d*besseli(k,z,1);
+                S = S + t;
+                d = d*x;
+                k = k + 1;
+                if (abs(t/S) < tol) then
+                    break;
+                end
             end
+            q = S*exp(-((a-b)^2)/2);
+        else
+            x = b/a;
+            k = m;
+            d = x^m;
+            S = 0;
+            while(1==1)
+                t = d*besseli(k,z,1);
+                S = S + t;
+                d = d*x;
+                k = k + 1;
+                if (abs(t/S) < tol) then
+                    break;
+                end
+            end
+            q = 1 - S*exp(-((a-b)^2)/2);
         end
-        q = 1 - S*exp(-((a-b)^2)/2);
+        q_vec(i) = q;
     end
 endfunction
