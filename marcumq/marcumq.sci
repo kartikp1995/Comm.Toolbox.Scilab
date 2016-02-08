@@ -8,7 +8,7 @@
 // http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
 
 function q_vec = marcumq(a_vec, b_vec, varargin)
-//  q = marcumq(a, b, m, tol)
+//  q = marcumq(a, b, m)
     //  This function calculates Marcum's Q function.
     //  Q_M(a,b) = 1/a^(m-1) \int_{b}^{\inf} x^m exp(-(x^2 + a^2)/2) I_{m-1} (ax) dx
     //          Where I_{m-1} (x) is modified bessel function.
@@ -20,11 +20,9 @@ function q_vec = marcumq(a_vec, b_vec, varargin)
     //      a_vec            :   Scalar or Vector or Matrix of values of a
     //      b_vec            :   Scalar or Vector or Matrix of values of b
     //      m                :   Scalar or Vector or Matrix of values of m
-    //      tol              :   Tolerance value to stop the calculation after a specific time.
-    //                           Default: 1e-9
 
-    //  Conditions:
-    //      size(a_vec) == size(b_vec) == size(m_vec) : The returned vector will be of size(m_vec)
+    //  Conditions on input:
+    //      If size(a_vec) == size(b_vec) == size(m_vec) : The returned vector will be of size(m_vec)
     //                                                  where q_vec(i) = marcumq(a_vec(i), b_vec(i), m_vec(i))
     //      If size of inputs a_vec, m_vec or b_vec is equal to [1 1] then
     //              it will be converted to size of other inputs that is not [1 1].
@@ -32,14 +30,15 @@ function q_vec = marcumq(a_vec, b_vec, varargin)
     //              error will be thrown.
 
     //  Output:
-    //      q           :   Vector of input size
+    //      q           :   Vector of size of inputs with values calculated by taking each individual elements
+    //                      from the inputs. i.e. q(i) = marcumq(a(i), b(i), m(i), tol)
     //
     //  Reference:
     //  [1] R. T. Short, "Computation of Noncentral Chi-squared and Rice Random Variables", 
     //      http://www.phaselockedsystems.com/NoncentralChiSquared.pdf
 
 
-    if argn(2)>4 | argn(2)<2 then
+    if argn(2)>3 | argn(2)<2 then
         error(msprintf(gettext("Wrong number of Input argument\n")));
     end
 
@@ -63,7 +62,7 @@ function q_vec = marcumq(a_vec, b_vec, varargin)
         error(msprintf(gettext("Dimensions of input vectors must be same\n")));
     end
 
-    if argn(2) >= 3 then
+    if argn(2) == 3 then
         m_vec = varargin(1);
         if or(imag(m_vec)~=0) then
             error(msprintf(gettext("m_vec must be positive integer.\n")));
@@ -72,6 +71,7 @@ function q_vec = marcumq(a_vec, b_vec, varargin)
         elseif or(floor(m_vec)~=m_vec) then
             error(msprintf(gettext("m_vec must be positive integer.\n")));
         end
+        
         if size(m_vec) == [1 1] then
             m_vec = repmat(m_vec, size(a_vec));
         else
@@ -86,20 +86,11 @@ function q_vec = marcumq(a_vec, b_vec, varargin)
         m_vec = ones(size(a_vec));
     end
     
-    if argn(2) == 4 then
-        tol = varargin(2);
-        if imag(tol~=0) then
-            error(msprintf(gettext("Tolerance value must be real and in the range 0 to 1\n")));
-        elseif ~(tol>0 & tol<1) then
-            error(msprintf(gettext("Tolerance value must be in the range 0 to 1\n")));
-        end
-    else
-        tol = 1e-9;
-    end
+    tol = 1e-9;
     //Variable check completed
     
-    q_vec = zeros(size(a_vec));
-    for i = 1:prod(size(a))
+    q_vec = zeros(a_vec);
+    for i = 1:prod(size(a_vec))
         b = b_vec(i);
         a = a_vec(i);
         m = m_vec(i);
@@ -124,7 +115,7 @@ function q_vec = marcumq(a_vec, b_vec, varargin)
                 S = S + t;
                 d = d * x;
             end
-            k = 1;
+            k = k + 1;
             while(1==1)
                 t = d*besseli(k,z,1);
                 S = S + t;
