@@ -9,7 +9,8 @@
 
 function alg = cma(stepsize, varargin)
 //  alg = cma(stepsize, leakage_factor)
-    //  This function creates an AdaptiveAlgorithm Object for to use it with `lineareq` or `dfe` to create an equalizer object.
+    //  This function creates an AdaptiveAlgorithm Object for a Constant Modulus Algortihm 
+    //      to use it with `lineareq` or `dfe` to create an equalizer object.
     //  NOTE: For now, the object is expressed as a structure type.
     //
     //  Input Arguments:
