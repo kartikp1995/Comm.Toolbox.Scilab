@@ -6,7 +6,8 @@ Project for Communication Toolbox in Scilab for FOSSEE Project
 2. [matintrlv](matintrlv/)
 3. [marcumq](marcumq/)
 4. [cma](cma/)
-5. [varlms](varlms/)
+5. [lms](lms/)
+6. [varlms](varlms/)
 
 
 License
