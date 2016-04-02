@@ -2,7 +2,7 @@
 
 What is it?
 -----------
-This function creates an AdaptiveAlgorithm Object for to use it with `lineareq` or `dfe` to create an equalizer object.<br>
+This function creates an AdaptiveAlgorithm Object for Constant Modulus Algorithm to use it with `lineareq` or `dfe` to create an equalizer object.<br>
     This function has been developed for Communication toolbox in Scilab under Project FOSSEE Toolbox.<br>
 
 Usage
