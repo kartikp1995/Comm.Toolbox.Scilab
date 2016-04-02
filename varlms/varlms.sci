@@ -7,8 +7,8 @@
 // are also available at    
 // http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
 
-function alg = varlms(initstep,incstep,minstep,maxstep, varargin)
-//  alg = varlms(initstep,incstep,minstep,maxstep)
+function alg = varlms(initstep, incstep, minstep, maxstep, varargin)
+//  alg = varlms(initstep, incstep, minstep, maxstep, leakage_factor)
     //  This function creates an AdaptiveAlgorithm Object for Variable Size LMS Algortihm
     //    to use it with `lineareq` or `dfe` to create an equalizer object.
     //  NOTE: For now, the object is expressed as a structure type.
@@ -18,7 +18,7 @@ function alg = varlms(initstep,incstep,minstep,maxstep, varargin)
     //      incstep          :   Increment in initial value of stepsize after every iteration
     //      minstep          :   Minimum value of stepsize
     //      maxstep          :   Maximum value of stepsize
-    //      leakage_factor   :   Leakage Factor parameter for algorithm
+    //      leakage_factor   :   Leakage Factor parameter for algorithm (Default = 1)
 
     //  Output:
     //      alg              :   Adaptive Alagorithm Object based on Input parameters. Implemented as a Structure type.
