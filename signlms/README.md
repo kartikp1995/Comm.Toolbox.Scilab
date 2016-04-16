@@ -16,7 +16,7 @@ Instructions
 `alg = lms(stepsize, alg_type, leakage_factor)`
   - Input Arguments:
     * `stepsize`        :   Any non-negative real number. It is StepSize parameter for LMS algorithm.
-    * `alg_type`        :   Select algorithm from a set of signed LMS algortihms.
+    * `alg_type`        :   Select algorithm from a set of signed LMS algortihms.<br>
                             Options: `'Sign LMS'` (default), `'Signed Regressor LMS'`, `'Sign Sign LMS'`
     * `leakage_factor`  :   Real number between 0 to 1. It is Leakage Factor parameter for LMS algorithm. (Default = 1)
 
