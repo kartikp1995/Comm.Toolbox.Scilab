@@ -8,6 +8,7 @@ Project for Communication Toolbox in Scilab for FOSSEE Project
 4. [cma](cma/)
 5. [lms](lms/)
 6. [varlms](varlms/)
+7. [rls](rls/)
 
 
 License
