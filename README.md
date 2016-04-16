@@ -11,6 +11,7 @@ Project for Communication Toolbox in Scilab for FOSSEE Project
 7. [signlms](signlms/)
 8. [rls](rls/)
 9. [normlms](normlms/)
+10. [lineareq](lineareq/)
 
 
 License
