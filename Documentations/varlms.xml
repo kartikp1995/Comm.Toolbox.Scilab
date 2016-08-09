@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from varlms.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="varlms" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>varlms</refname>
+    <refpurpose>This function creates an AdaptiveAlgorithm Object for Variable Size LMS Algortihm to use it with `lineareq` or `dfe` to create an equalizer object.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   alg = varlms(initstep, incstep, minstep, maxstep, leakage_factor)
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>initstep:</term>
+      <listitem><para>Initial value of stepsize</para></listitem></varlistentry>
+   <varlistentry><term>incstep:</term>
+      <listitem><para>Increment in initial value of stepsize after every iteration</para></listitem></varlistentry>
+   <varlistentry><term>minstep:</term>
+      <listitem><para>Minimum value of stepsize</para></listitem></varlistentry>
+   <varlistentry><term>maxstep:</term>
+      <listitem><para>Maximum value of stepsize</para></listitem></varlistentry>
+   <varlistentry><term>leakage_factor:</term>
+      <listitem><para>Leakage Factor parameter for algorithm (Default = 1)</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+alg = varlms(0.1, 0.01, 0.001, 1)
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Kartik Patel</member>
+   </simplelist>
+</refsection>
+</refentry>

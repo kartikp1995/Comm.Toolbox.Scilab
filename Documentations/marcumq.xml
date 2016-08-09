@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from marcumq.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="marcumq" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>marcumq</refname>
+    <refpurpose>This function calculates Marcum's Q function.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   q = marcumq(a, b, m)
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>a_vec:</term>
+      <listitem><para>Scalar or Vector or Matrix of values of a</para></listitem></varlistentry>
+   <varlistentry><term>b_vec:</term>
+      <listitem><para>Scalar or Vector or Matrix of values of b</para></listitem></varlistentry>
+   <varlistentry><term>m:</term>
+      <listitem><para>Scalar or Vector or Matrix of values of m</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+y = marcumq(1,2)
+y = marcumq(1,2,2);
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Kartik Patel</member>
+   </simplelist>
+</refsection>
+</refentry>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from ssbmod.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="ssbmod" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>ssbmod</refname>
+    <refpurpose>Calling Sequence</refpurpose>
+  </refnamediv>
+
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>x:</term>
+      <listitem><para>Modulating signal</para></listitem></varlistentry>
+   <varlistentry><term>Fc:</term>
+      <listitem><para>Carrier Frequency of Modulated signal</para></listitem></varlistentry>
+   <varlistentry><term>Fs:</term>
+      <listitem><para>Sampling Frequency of Input signal</para></listitem></varlistentry>
+   <varlistentry><term>init_phase:</term>
+      <listitem><para>Initial Phase of Modulated signal (default = 0, optional)</para></listitem></varlistentry>
+   <varlistentry><term>'upper':</term>
+      <listitem><para>Upper SideBand modulated signal   (default='lower', optional). For lower sideband, this argument can be blank.</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+Fs = 1000; //Sampling Frequency: 1 kHz
+t = 0:1/Fs:2; //Samples for 2 seconds
+x = cos(2*%pi*50*t)+cos(2*%pi*10*t)+cos(2*%pi*20*t);
+Fc = 200; //Carrier Frequency: 400 Hz
+y_lower = ssbmod(x, Fc, Fs);
+y_upper = ssbmod(x, Fc, Fs, 0, 'upper');
+
+fft_lower = abs(fft(y_lower));
+fft_lower = fft_lower(1:length(fft_lower)/2+1);
+frqz = (0:length(fft_lower)-1)*Fs/(2*length(fft_lower));
+
+fft_upper = abs(fft(y_upper));
+fft_upper = fft_upper(1:length(fft_upper)/2+1);
+frqz = (0:length(fft_upper)-1)*Fs/(2*length(fft_upper));
+
+plot(frqz, fft_upper);
+plot(frqz, fft_lower, 'r');
+legend('Upper Sideband', 'Lower Sideband');
+title('Single Sideband Modulation results');
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Kartik Patel</member>
+   </simplelist>
+</refsection>
+</refentry>

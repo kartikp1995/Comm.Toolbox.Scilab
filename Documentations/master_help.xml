@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book [
+<!--Begin Entities-->
+<!ENTITY a830b3faa9e0c46ff2580f6284b258125 SYSTEM "file:///E:/Programs/GitHub/Comm.Toolbox.Scilab/Documentations/cma.xml">
+<!ENTITY a84f2979591f2cee524cdae2412d35f12 SYSTEM "file:///E:/Programs/GitHub/Comm.Toolbox.Scilab/Documentations/lms.xml">
+<!ENTITY a1e6372ca41e2c3956b4618b7720fcc23 SYSTEM "file:///E:/Programs/GitHub/Comm.Toolbox.Scilab/Documentations/marcumq.xml">
+<!ENTITY a1ce22c6950aed2181ea899b8a26435d2 SYSTEM "file:///E:/Programs/GitHub/Comm.Toolbox.Scilab/Documentations/matintrlv.xml">
+<!ENTITY acf9c8489cd7a9f465bbfa439be0ecda3 SYSTEM "file:///E:/Programs/GitHub/Comm.Toolbox.Scilab/Documentations/normlms.xml">
+<!ENTITY a95be3d9633f9cf2cd3e92fea8c4f9435 SYSTEM "file:///E:/Programs/GitHub/Comm.Toolbox.Scilab/Documentations/rls.xml">
+<!ENTITY a86dbe44a8fcb3813d0d22b671ec777d9 SYSTEM "file:///E:/Programs/GitHub/Comm.Toolbox.Scilab/Documentations/signlms.xml">
+<!ENTITY a48905c4d57c65c87f1f83eb9c3bb0a1b SYSTEM "file:///E:/Programs/GitHub/Comm.Toolbox.Scilab/Documentations/ssbmod.xml">
+<!ENTITY a7070b06098a1cca6099c4110ed8fa5c9 SYSTEM "file:///E:/Programs/GitHub/Comm.Toolbox.Scilab/Documentations/varlms.xml">
+<!--End Entities-->
+]>
+<book version="5.0-subset Scilab" xml:lang="Documentations"
+      xmlns="http://docbook.org/ns/docbook"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      xmlns:svg="http://www.w3.org/2000/svg"
+      xmlns:mml="http://www.w3.org/1998/Math/MathML"
+      xmlns:html="http://www.w3.org/1999/xhtml"
+      xmlns:db="http://docbook.org/ns/docbook">
+  <info xml:id='communication_toolbox_manual'>
+    <title>Communication Toolbox</title>
+  </info>
+
+<part xml:id='section_e57306f6397b952ca38d6ac19b4747d5'>
+<title>Communication Toolbox</title>
+&a830b3faa9e0c46ff2580f6284b258125;
+&a84f2979591f2cee524cdae2412d35f12;
+&a1e6372ca41e2c3956b4618b7720fcc23;
+&a1ce22c6950aed2181ea899b8a26435d2;
+&acf9c8489cd7a9f465bbfa439be0ecda3;
+&a95be3d9633f9cf2cd3e92fea8c4f9435;
+&a86dbe44a8fcb3813d0d22b671ec777d9;
+&a48905c4d57c65c87f1f83eb9c3bb0a1b;
+&a7070b06098a1cca6099c4110ed8fa5c9;
+</part>
+</book>

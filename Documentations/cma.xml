@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ *
+ * This help file was generated from cma.sci using help_from_sci().
+ *
+ -->
+
+<refentry version="5.0-subset Scilab" xml:id="cma" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns:svg="http://www.w3.org/2000/svg"
+          xmlns:ns3="http://www.w3.org/1999/xhtml"
+          xmlns:mml="http://www.w3.org/1998/Math/MathML"
+          xmlns:scilab="http://www.scilab.org"
+          xmlns:db="http://docbook.org/ns/docbook">
+
+  <refnamediv>
+    <refname>cma</refname>
+    <refpurpose>This function creates an AdaptiveAlgorithm Object for a Constant Modulus Algortihm to use it with `lineareq` or `dfe` to create an equalizer object.</refpurpose>
+  </refnamediv>
+
+
+<refsynopsisdiv>
+   <title>Calling Sequence</title>
+   <synopsis>
+   alg = cma(stepsize, leakage_factor)
+   </synopsis>
+</refsynopsisdiv>
+
+<refsection>
+   <title>Parameters</title>
+   <variablelist>
+   <varlistentry><term>stepsize:</term>
+      <listitem><para>double-Any non-negative real number. It is StepSize parameter for CMA algorithm.</para></listitem></varlistentry>
+   <varlistentry><term>leakage_factor:</term>
+      <listitem><para>double-Real number between 0 to 1. It is Leakage Factor parameter for CMA algorithm. (Default = 1)</para></listitem></varlistentry>
+   </variablelist>
+</refsection>
+
+<refsection>
+   <title>Examples</title>
+   <programlisting role="example"><![CDATA[
+alg = cma(0.1,0.001)
+   ]]></programlisting>
+</refsection>
+
+<refsection>
+   <title>Authors</title>
+   <simplelist type="vert">
+   <member>Kartik Patel</member>
+   </simplelist>
+</refsection>
+</refentry>
